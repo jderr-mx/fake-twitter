@@ -5,12 +5,14 @@
 {{/unless}}
 {{#each model as |tweet|}}
   <div class="row">
-      <div class="card col-sm" >
+      <div class="col-sm" >
+        <div class="card">
         <div class="card-header ">{{tweet.handle}}
           <span class="float-right"><button {{action "deleteTweet" tweet}}class="badge badge-pill badge-danger">Delete</button></span>
         </div>
         <div class="card-body">
         <p class="card-text">{{tweet.text}}</p>
+        </div>
         </div>
       </div>
   </div>

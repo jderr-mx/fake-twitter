@@ -5,7 +5,7 @@
 {{/unless}}
 {{#each model as |tweet|}}
   <div class="row">
-      <div class="card" style="width: 40rem;">
+      <div class="card col-sm" >
         <div class="card-header ">{{tweet.handle}}
           <span class="float-right"><button {{action "deleteTweet" tweet}}class="badge badge-pill badge-danger">Delete</button></span>
         </div>
@@ -16,7 +16,7 @@
   </div>
   <br>
 {{/each}}
-<div style="width: 40rem;">
+<div class="col-sm">
   <div class="form-group row" >
     <label for="handleField">Handle</label>
     {{input id="handleField" type="text" class="form-control" value=tweetHandle}}

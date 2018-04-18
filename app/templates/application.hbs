@@ -1,5 +1,32 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<div class="container">
+<h3>Fake Twitter</h3>
+{{#unless model.length}}
+  <p>Tweet Some Things!</p>
+{{/unless}}
+{{#each model as |tweet|}}
+  <div class="row">
+      <div class="card" style="width: 40rem;">
+        <div class="card-header ">{{tweet.handle}}
+          <span class="float-right"><button {{action "deleteTweet" tweet}}class="badge badge-pill badge-danger">Delete</button></span>
+        </div>
+        <div class="card-body">
+        <p class="card-text">{{tweet.text}}</p>
+        </div>
+      </div>
+  </div>
+  <br>
+{{/each}}
+<div style="width: 40rem;">
+  <div class="form-group row" >
+    <label for="handleField">Handle</label>
+    {{input id="handleField" type="text" class="form-control" value=tweetHandle}}
+    <label for="textField">Text</label>
+    {{textarea rows="10" id="textField" type="text" class="form-control" value=tweetText}}
+  </div>
+    <div class="form-group row float-right">
+      <button {{action "saveTweet"}} type="button" class="btn btn-outline btn-outline-success">Save</button>
+      &nbsp;
+      <button {{action "cancelTweet"}} type="button" class="btn btn-outline btn-outline-danger">Cancel</button>
+    </div>
+</div>
+</div>
